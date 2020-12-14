@@ -1,4 +1,7 @@
 language: ruby
+arch:
+  - amd64
+  - ppc64le
 
 rvm:
   - 2.0
@@ -21,9 +24,20 @@ matrix:
       env: COVERAGE=true
     - rvm: jruby-head
       gemfile: Gemfile
+    - rvm: 2.1
+      arch: ppc64le
+      gemfile: Gemfile
+      env: COVERAGE=true
+    - rvm: jruby-head
+      arch: ppc64le
+      gemfile: Gemfile
   allow_failures:
     - rvm: jruby-head
     - rvm: jruby9k
+    - rvm: jruby-head
+      arch: ppc64le
+    - rvm: jruby9k
+      arch: ppc64le
 
 notifications:
   email: false
